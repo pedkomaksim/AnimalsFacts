@@ -6,6 +6,13 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
+
+struct State: Equatable {
+    
+    var counter = 0
+    
+}
 
 struct ContentView: View {
     var body: some View {
