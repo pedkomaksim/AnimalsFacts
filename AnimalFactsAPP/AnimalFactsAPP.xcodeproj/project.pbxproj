@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C3B6E5D2A4C3DF500353105 /* Animals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B6E5C2A4C3DF500353105 /* Animals.swift */; };
 		2C96B1BA2A49C99E0040793E /* AnimalFactsAPPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C96B1B92A49C99E0040793E /* AnimalFactsAPPApp.swift */; };
 		2C96B1BC2A49C99E0040793E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C96B1BB2A49C99E0040793E /* ContentView.swift */; };
-		2C96B1BE2A49C99F0040793E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C96B1BD2A49C99F0040793E /* Assets.xcassets */; };
 		2C96B1C12A49C99F0040793E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C96B1C02A49C99F0040793E /* Preview Assets.xcassets */; };
 		2C96B1C92A49CBAC0040793E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2C96B1C82A49CBAC0040793E /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C3B6E5C2A4C3DF500353105 /* Animals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animals.swift; sourceTree = "<group>"; };
 		2C96B1B62A49C99E0040793E /* AnimalFactsAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalFactsAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C96B1B92A49C99E0040793E /* AnimalFactsAPPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFactsAPPApp.swift; sourceTree = "<group>"; };
 		2C96B1BB2A49C99E0040793E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		2C96B1BD2A49C99F0040793E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C96B1C02A49C99F0040793E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -34,6 +34,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C3B6E5B2A4C3DC900353105 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2C3B6E5C2A4C3DF500353105 /* Animals.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		2C96B1AD2A49C99E0040793E = {
 			isa = PBXGroup;
 			children = (
@@ -54,12 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				2C96B1B92A49C99E0040793E /* AnimalFactsAPPApp.swift */,
+				2C3B6E5B2A4C3DC900353105 /* Models */,
 				2C96B1CA2A49D4800040793E /* Views */,
-				2C96B1CF2A49D4DA0040793E /* Resources */,
-				2C96B1CE2A49D4CE0040793E /* State */,
-				2C96B1CD2A49D4B90040793E /* Modules */,
-				2C96B1CC2A49D49D0040793E /* Services */,
-				2C96B1CB2A49D4920040793E /* Models */,
 				2C96B1D02A49D4FC0040793E /* Helpers */,
 				2C96B1BF2A49C99F0040793E /* Preview Content */,
 			);
@@ -80,42 +84,6 @@
 				2C96B1BB2A49C99E0040793E /* ContentView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		2C96B1CB2A49D4920040793E /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		2C96B1CC2A49D49D0040793E /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		2C96B1CD2A49D4B90040793E /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
-		2C96B1CE2A49D4CE0040793E /* State */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = State;
-			sourceTree = "<group>";
-		};
-		2C96B1CF2A49D4DA0040793E /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				2C96B1BD2A49C99F0040793E /* Assets.xcassets */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		2C96B1D02A49D4FC0040793E /* Helpers */ = {
@@ -190,7 +158,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C96B1C12A49C99F0040793E /* Preview Assets.xcassets in Resources */,
-				2C96B1BE2A49C99F0040793E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C96B1BC2A49C99E0040793E /* ContentView.swift in Sources */,
+				2C3B6E5D2A4C3DF500353105 /* Animals.swift in Sources */,
 				2C96B1BA2A49C99E0040793E /* AnimalFactsAPPApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
