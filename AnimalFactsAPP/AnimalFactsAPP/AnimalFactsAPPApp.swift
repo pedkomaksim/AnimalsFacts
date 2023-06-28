@@ -5,19 +5,27 @@
 //  Created by Максим Педько on 26.06.2023.
 //
 
-import SwiftUI
 import ComposableArchitecture
+import SwiftUI
 
 @main
-struct AnimalFactsAPPApp: App {
+struct AnimalsFactsApp: App {
+    let store: Store<AnimalListState, AnimalListAction>
+    let viewStore: ViewStore<AnimalListState, AnimalListAction>
+    
+    init() {
+        let apiClient = APIClient.live
+        let initialState = AnimalListState()
+        let environment = AnimalListEnvironment(apiClient: apiClient)
+        
+        store = Store(initialState: initialState, reducer: animalListReducer, environment: environment)
+        viewStore = ViewStore(store)
+    }
+    
     var body: some Scene {
         WindowGroup {
-            RootView(
-                store: Store(
-                    initialState: RootDomain.State(),
-                    reducer: RootDomain.live
-                )
-            )
+            AnimalListView(store: store)
         }
     }
 }
+
