@@ -1,2 +1,2 @@
-# AnimalsFacts_promova
-Promova iOS test task
+# AnimalsFacts
+ iOS test task
