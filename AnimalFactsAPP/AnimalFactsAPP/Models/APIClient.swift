@@ -9,8 +9,8 @@ import Foundation
 import ComposableArchitecture
 
 struct APIClient {
-    var fetchAnimals: Effect<[Animal], Error>
     
+    var fetchAnimals: Effect<[Animal], Error>
     struct Failure: Error, Equatable {}
 }
 

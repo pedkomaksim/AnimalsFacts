@@ -30,7 +30,6 @@ struct AnimalDetailView: View {
                         ProgressView()
                             .frame(width: 200, height: 200)
                     }
-                    
                 }
                 
                 if let fact = viewStore.currentFact {

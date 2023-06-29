@@ -32,7 +32,7 @@ let animalListReducer = AnyReducer<AnimalListState, AnimalListAction, AnimalList
         case .success(let animals):
             state.animals = animals.sorted(by: { $0.order < $1.order })
         case .failure:
-            // Handle error state if needed
+            
             break
         }
         return .none

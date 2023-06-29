@@ -12,12 +12,29 @@ struct Animal: Decodable, Equatable {
     let description: String
     let image: String
     let order: Int
-    let status: Status
+    let status: Status?
     let content: [AnimalFact]?
 
     enum Status: String, Decodable {
         case paid
         case free
+        case comingSoon
+    }
+    
+    init(
+        title: String,
+        description: String,
+        image: String,
+        order: Int,
+        status: Status? = .comingSoon,
+        content: [AnimalFact]?
+    ) {
+        self.title = title
+        self.description = description
+        self.image = image
+        self.order = order
+        self.status = status
+        self.content = content
     }
 }
 

@@ -9,7 +9,9 @@ import SwiftUI
 import ComposableArchitecture
 
 struct AnimalListView: View {
+    
     let store: Store<AnimalListState, AnimalListAction>
+    @State private var isDetailViewActive = false
     
     var body: some View {
         NavigationView {
@@ -22,13 +24,13 @@ struct AnimalListView: View {
                         ),
                         reducer: animalDetailReducer,
                         environment: AnimalListEnvironment(apiClient: APIClient.live)
-                    ))) {
-                        VStack(alignment: .leading) {
-                            Text(animal.title)
-                                .font(.headline)
-                            Text(animal.description)
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
+                    )), isActive: Binding(
+                        get: { isDetailViewActive },
+                        set: { isDetailViewActive = $0 }
+                    )) {
+                        AnimalRowView(animal: animal) { _ in
+                            viewStore.send(.animalTapped(animal))
+                            isDetailViewActive = true 
                         }
                     }
                 }
@@ -40,6 +42,7 @@ struct AnimalListView: View {
         }
     }
 }
+
 
 struct AnimalListView_Previews: PreviewProvider {
     static var previews: some View {

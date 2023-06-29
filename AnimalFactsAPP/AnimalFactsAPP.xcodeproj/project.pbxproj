@@ -14,6 +14,7 @@
 		2C4B06372A4CE10B009497BC /* AnimalDetailReduser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B06362A4CE10B009497BC /* AnimalDetailReduser.swift */; };
 		2C4B06392A4CE124009497BC /* AnimalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B06382A4CE124009497BC /* AnimalDetailView.swift */; };
 		2C4B063D2A4CE2F6009497BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B063C2A4CE2F6009497BC /* Assets.xcassets */; };
+		2C6711A72A4D953B00B90D56 /* AnimalRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6711A62A4D953B00B90D56 /* AnimalRowView.swift */; };
 		2C96B1BA2A49C99E0040793E /* AnimalFactsAPPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C96B1B92A49C99E0040793E /* AnimalFactsAPPApp.swift */; };
 		2C96B1C12A49C99F0040793E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C96B1C02A49C99F0040793E /* Preview Assets.xcassets */; };
 		2C96B1C92A49CBAC0040793E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2C96B1C82A49CBAC0040793E /* ComposableArchitecture */; };
@@ -27,6 +28,7 @@
 		2C4B06362A4CE10B009497BC /* AnimalDetailReduser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetailReduser.swift; sourceTree = "<group>"; };
 		2C4B06382A4CE124009497BC /* AnimalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetailView.swift; sourceTree = "<group>"; };
 		2C4B063C2A4CE2F6009497BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2C6711A62A4D953B00B90D56 /* AnimalRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalRowView.swift; sourceTree = "<group>"; };
 		2C96B1B62A49C99E0040793E /* AnimalFactsAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalFactsAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C96B1B92A49C99E0040793E /* AnimalFactsAPPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFactsAPPApp.swift; sourceTree = "<group>"; };
 		2C96B1C02A49C99F0040793E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				2C4B06322A4CE0B0009497BC /* AnimalListReducer.swift */,
 				2C4B06342A4CE0E8009497BC /* AnimalListView.swift */,
+				2C6711A62A4D953B00B90D56 /* AnimalRowView.swift */,
 			);
 			path = AnimalList;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				2C4B06352A4CE0E8009497BC /* AnimalListView.swift in Sources */,
 				2C4B06392A4CE124009497BC /* AnimalDetailView.swift in Sources */,
 				2C3B6E5D2A4C3DF500353105 /* Animals.swift in Sources */,
+				2C6711A72A4D953B00B90D56 /* AnimalRowView.swift in Sources */,
 				2C3B6E622A4C479300353105 /* APIClient.swift in Sources */,
 				2C4B06372A4CE10B009497BC /* AnimalDetailReduser.swift in Sources */,
 				2C4B06332A4CE0B0009497BC /* AnimalListReducer.swift in Sources */,
