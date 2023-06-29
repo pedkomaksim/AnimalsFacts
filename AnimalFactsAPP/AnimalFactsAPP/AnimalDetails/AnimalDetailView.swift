@@ -9,42 +9,31 @@ import SwiftUI
 import ComposableArchitecture
 
 struct AnimalDetailView: View {
+    
     let store: Store<AnimalDetailState, AnimalDetailAction>
+    let categoryTitle: String
     
     var body: some View {
         WithViewStore(store) { viewStore in
-            VStack {
-                AsyncImage(url: URL(string: viewStore.animal.image)) { phase in
-                    if let image = phase.image {
-                        image.resizable()
-                            .scaledToFit()
-                            .frame( height: 200)
-                            .clipped()
+            NavigationView {
+                GeometryReader { geometry in
+                    ZStack {
+                        Color("rouse")
+                            .edgesIgnoringSafeArea(.all)
                         
-                    } else if phase.error != nil {
-                        
-                        Text(phase.error?.localizedDescription ?? "error")
-                            .foregroundColor(Color.pink)
-                            .frame(width: 200, height: 200)
-                    } else {
-                        ProgressView()
-                            .frame(width: 200, height: 200)
-                    }
-                }
-                
-                if let fact = viewStore.currentFact {
-                    VStack(alignment: .leading) {
-                                Text(fact.fact)
-                                    .font(.headline)
+                        VStack {
+                            if let fact = viewStore.currentFact {
                                 AsyncImage(url: URL(string: fact.image)) { phase in
                                     if let image = phase.image {
-                                        image.resizable()
+                                        image
+                                            .resizable()
                                             .scaledToFit()
                                             .frame(height: 200)
                                             .clipped()
+                                            .padding(20.0)
                                     } else if phase.error != nil {
-                                        Text(phase.error?.localizedDescription ?? "error")
-                                            .foregroundColor(Color.pink)
+                                        Text(phase.error?.localizedDescription ?? "Error")
+                                            .foregroundColor(.pink)
                                             .frame(width: 200, height: 200)
                                     } else {
                                         ProgressView()
@@ -52,34 +41,55 @@ struct AnimalDetailView: View {
                                     }
                                 }
                                 .id(fact)
+                                
+                                Text(fact.fact)
+                                    .font(.headline)
+                                    .foregroundColor(.black)
+                                    .padding()
+                            } else {
+                                Text("No facts available")
+                                    .font(.headline)
+                                    .foregroundColor(.red)
+                                    .padding()
                             }
-                } else {
-                    Text("No facts available")
-                        .font(.headline)
-                        .foregroundColor(.red)
-                }
-                
-                HStack {
-                    Button(action: {
-                        viewStore.send(.previousFact)
-                    }) {
-                        Image(systemName: "arrow.left")
+                            
+                            Spacer()
+                            
+                            HStack {
+                                Button(action: {
+                                    viewStore.send(.previousFact)
+                                }) {
+                                    Image(systemName: "arrow.left")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 80, height: 80)
+                                        .foregroundColor(.black)
+                                }
+                                .disabled(!viewStore.canGoToPreviousFact)
+                                
+                                Spacer()
+                                
+                                Button(action: {
+                                    viewStore.send(.nextFact)
+                                }) {
+                                    Image(systemName: "arrow.right")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 80, height: 80)
+                                        .foregroundColor(.black)
+                                }
+                                .disabled(!viewStore.canGoToNextFact)
+                            }
+                            .padding()
+                        }
+                        .background(Color.white)
+                        .cornerRadius(16)
+                        .padding()
                     }
-                    .frame(width: 50, height: 50)
-                    .disabled(!viewStore.canGoToPreviousFact)
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        viewStore.send(.nextFact)
-                    }) {
-                        Image(systemName: "arrow.right")
-                    }
-                    .frame(width: 50, height: 50)
-                    .disabled(!viewStore.canGoToNextFact)
+                    .frame(width: geometry.size.width, height: geometry.size.height)
                 }
             }
-            .padding()
+            .navigationTitle(categoryTitle)
         }
     }
 }
@@ -93,7 +103,7 @@ struct AnimalDetailView_Previews: PreviewProvider {
             ),
             reducer: animalDetailReducer,
             environment: AnimalListEnvironment(apiClient: APIClient.live)
-        ))
+        ), categoryTitle: Animal.sample[0].title)
     }
 }
 

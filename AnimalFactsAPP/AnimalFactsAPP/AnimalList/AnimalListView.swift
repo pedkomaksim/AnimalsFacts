@@ -27,7 +27,7 @@ struct AnimalListView: View {
                                     ),
                                     reducer: animalDetailReducer,
                                     environment: AnimalListEnvironment(apiClient: APIClient.live)
-                                )), isActive: Binding(
+                                ), categoryTitle: detailAnimal.title), isActive: Binding(
                                     get: { isDetailViewActive },
                                     set: { isDetailViewActive = $0 }
                                 )) {

@@ -42,6 +42,14 @@ struct AnimalRowView: View {
                                 .foregroundColor(.blue)
                         }
                     }
+                    if animal.status == .comingSoon {
+                        HStack {
+                            Image(systemName: "clock.fill")
+                                .foregroundColor(.gray)
+                            Text("Coming Soon")
+                                .foregroundColor(.gray)
+                        }
+                    }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
