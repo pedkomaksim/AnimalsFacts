@@ -13,6 +13,8 @@ struct AnimalDetailView: View {
     let store: Store<AnimalDetailState, AnimalDetailAction>
     let categoryTitle: String
     
+    @State private var isShareSheetPresented = false // Добавляем состояние для отображения share sheet
+    
     var body: some View {
         WithViewStore(store) { viewStore in
             NavigationView {
@@ -90,7 +92,34 @@ struct AnimalDetailView: View {
                 }
             }
             .navigationTitle(categoryTitle)
+            .navigationBarItems(trailing:
+                Button(action: {
+                    isShareSheetPresented = true
+                }) {
+                    Image(systemName: "square.and.arrow.up")
+                }
+                .sheet(isPresented: $isShareSheetPresented) {
+                    // Здесь открывается share sheet с фактом
+                    if let fact = viewStore.currentFact {
+                        ShareSheet(activityItems: [fact.fact])
+                    }
+                }
+            )
         }
+    }
+}
+
+struct ShareSheet: UIViewControllerRepresentable {
+    
+    let activityItems: [Any]
+    
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        return controller
+    }
+    
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
+        
     }
 }
 
