@@ -31,6 +31,7 @@ let animalListReducer = AnyReducer<AnimalListState, AnimalListAction, AnimalList
         switch result {
         case .success(let animals):
             state.animals = animals.sorted(by: { $0.order < $1.order })
+            
         case .failure:
             
             break
@@ -38,6 +39,7 @@ let animalListReducer = AnyReducer<AnimalListState, AnimalListAction, AnimalList
         return .none
         
     case .animalTapped(let animal):
+        print(animal.title)
         state.selectedAnimal = animal
         return .none
     }

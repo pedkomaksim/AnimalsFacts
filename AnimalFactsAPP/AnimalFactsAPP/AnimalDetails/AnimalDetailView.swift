@@ -65,6 +65,7 @@ struct AnimalDetailView: View {
                     }) {
                         Image(systemName: "arrow.left")
                     }
+                    .frame(width: 50, height: 50)
                     .disabled(!viewStore.canGoToPreviousFact)
                     
                     Spacer()
@@ -74,6 +75,7 @@ struct AnimalDetailView: View {
                     }) {
                         Image(systemName: "arrow.right")
                     }
+                    .frame(width: 50, height: 50)
                     .disabled(!viewStore.canGoToNextFact)
                 }
             }

@@ -7,12 +7,13 @@
 
 import Foundation
 
-struct Animal: Decodable, Equatable {
+struct Animal: Decodable, Equatable, Identifiable {
+    let id = UUID()
     let title: String
     let description: String
     let image: String
     let order: Int
-    let status: Status?
+    let status: Status
     let content: [AnimalFact]?
 
     enum Status: String, Decodable {
@@ -26,7 +27,7 @@ struct Animal: Decodable, Equatable {
         description: String,
         image: String,
         order: Int,
-        status: Status? = .comingSoon,
+        status: Status,
         content: [AnimalFact]?
     ) {
         self.title = title
