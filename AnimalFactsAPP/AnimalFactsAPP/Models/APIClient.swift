@@ -12,9 +12,11 @@ struct APIClient {
     
     var fetchAnimals: Effect<[Animal], Error>
     struct Failure: Error, Equatable {}
+    
 }
 
 extension APIClient {
+    
     static let live = Self(
         fetchAnimals: {
             URLSession.shared.dataTaskPublisher(for: URL(string: "https://raw.githubusercontent.com/AppSci/promova-test-task-iOS/main/animals.json")!)
@@ -24,4 +26,5 @@ extension APIClient {
                 .eraseToEffect()
         }()
     )
+    
 }

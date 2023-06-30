@@ -13,14 +13,14 @@ struct AnimalDetailView: View {
     let store: Store<AnimalDetailState, AnimalDetailAction>
     let categoryTitle: String
     
-    @State private var isShareSheetPresented = false // Добавляем состояние для отображения share sheet
+    @State private var isShareSheetPresented = false // Состояние для отображения share sheet
     
     var body: some View {
         WithViewStore(store) { viewStore in
             NavigationView {
                 GeometryReader { geometry in
                     ZStack {
-                        Color("rouse")
+                        Color("rouse") 
                             .edgesIgnoringSafeArea(.all)
                         
                         VStack {
@@ -44,12 +44,12 @@ struct AnimalDetailView: View {
                                 }
                                 .id(fact)
                                 
-                                Text(fact.fact)
+                                Text(fact.fact) // Отображение факта о животном
                                     .font(.headline)
                                     .foregroundColor(.black)
                                     .padding()
                             } else {
-                                Text("No facts available")
+                                Text("No facts available") // Сообщение, если нет доступных фактов
                                     .font(.headline)
                                     .foregroundColor(.red)
                                     .padding()
@@ -59,7 +59,7 @@ struct AnimalDetailView: View {
                             
                             HStack {
                                 Button(action: {
-                                    viewStore.send(.previousFact)
+                                    viewStore.send(.previousFact) // Действие для перехода к предыдущему факту
                                 }) {
                                     Image(systemName: "arrow.left")
                                         .resizable()
@@ -67,12 +67,12 @@ struct AnimalDetailView: View {
                                         .frame(width: 80, height: 80)
                                         .foregroundColor(.black)
                                 }
-                                .disabled(!viewStore.canGoToPreviousFact)
+                                .disabled(!viewStore.canGoToPreviousFact) // Отключение кнопки, если нет предыдущего факта
                                 
                                 Spacer()
                                 
                                 Button(action: {
-                                    viewStore.send(.nextFact)
+                                    viewStore.send(.nextFact) // Действие для перехода к следующему факту
                                 }) {
                                     Image(systemName: "arrow.right")
                                         .resizable()
@@ -80,7 +80,7 @@ struct AnimalDetailView: View {
                                         .frame(width: 80, height: 80)
                                         .foregroundColor(.black)
                                 }
-                                .disabled(!viewStore.canGoToNextFact)
+                                .disabled(!viewStore.canGoToNextFact) // Отключение кнопки, если нет следующего факта
                             }
                             .padding()
                         }
@@ -93,13 +93,13 @@ struct AnimalDetailView: View {
             }
             .navigationTitle(categoryTitle)
             .navigationBarItems(trailing:
-                Button(action: {
-                    isShareSheetPresented = true
-                }) {
-                    Image(systemName: "square.and.arrow.up")
-                }
+                                    Button(action: {
+                isShareSheetPresented = true // Отображение share sheet
+            }) {
+                Image(systemName: "square.and.arrow.up")
+            }
                 .sheet(isPresented: $isShareSheetPresented) {
-                    // Здесь открывается share sheet с фактом
+                    // Отображение share sheet с фактом
                     if let fact = viewStore.currentFact {
                         ShareSheet(activityItems: [fact.fact])
                     }
@@ -109,21 +109,8 @@ struct AnimalDetailView: View {
     }
 }
 
-struct ShareSheet: UIViewControllerRepresentable {
-    
-    let activityItems: [Any]
-    
-    func makeUIViewController(context: Context) -> UIActivityViewController {
-        let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-        return controller
-    }
-    
-    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
-        
-    }
-}
-
 struct AnimalDetailView_Previews: PreviewProvider {
+    
     static var previews: some View {
         AnimalDetailView(store: Store(
             initialState: AnimalDetailState(
@@ -134,5 +121,5 @@ struct AnimalDetailView_Previews: PreviewProvider {
             environment: AnimalListEnvironment(apiClient: APIClient.live)
         ), categoryTitle: Animal.sample[0].title)
     }
+    
 }
-
